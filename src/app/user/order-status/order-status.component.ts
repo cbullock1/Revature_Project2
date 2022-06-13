@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/model/order';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-order-status',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderStatusComponent implements OnInit {
 
-  constructor() { }
+  orderModel=new Order()
+
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
+  }
+  onSubmitHandler(){
+    console.log(this.orderModel)
+    this.authService.register(this.orderModel).subscribe(response =>{
+      console.log(response)
+    })
   }
 
 }

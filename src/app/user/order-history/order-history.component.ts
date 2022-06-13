@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-order-history',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-history.component.css']
 })
 export class OrderHistoryComponent implements OnInit {
-
-  constructor() { }
+ order:any[]=[]
+ orderid=1
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
-  }
+    this.dataService.getOrderByOrderId(this.orderid).subscribe(response =>{
+      this.order=response.data
 
+    })
+  }
 }
