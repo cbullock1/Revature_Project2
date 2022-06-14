@@ -1,10 +1,10 @@
 .wrapper{
-    background-color:aqua;
+    background-color:rgb(242, 247, 255);
     padding:70px;
     margin-top:50px;
     margin-bottom:40px;
     border-radius:10px;
-    box-shadow:10px 5px #fff;
+    box-shadow:10px 10px #000;
      width: 600px; 
 }
 .btn{

@@ -1,5 +1,6 @@
 .card{
     margin-top: 10px;
+    background-color:rgb(242, 247, 255);
     box-shadow: 10px 10px black;
 }
 .card-body{
