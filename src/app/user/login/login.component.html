@@ -25,7 +25,7 @@
     ngModel
     [class.is-invalid]="password.touched && password.invalid"
     class="form-control"/>
-    <small class="text-danger"[class.d-none]="password.untouched || password.valid">required*</small>
+    <small class="text-danger"[class.d-none]="password.untouched || password.valid">required(min 6 character)*</small>
   </div>
  <input type="checkbox"  name="reminder" >
   <label for=""> Remember me</label><br>
