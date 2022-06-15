@@ -46,19 +46,12 @@
     </div>
 <div>
     <label for="">Address</label>
-    <input type="text" name="add1" placeholder="street address" class="form-control"
+    <input type="text" name="add" placeholder="street address" class="form-control"
     required
-    [class.is-invalid]="add1.invalid && add1.touched"
-    #add1="ngModel"
-    [(ngModel)]="userModel.add1"/>
-    <small class="text-danger"[class.d-none]="add1.untouched || add1.valid">required*</small>
-    <br/>
-    <input type="text" name="add2" placeholder="street address line2 " class="form-control"
-    required
-    [class.is-invalid]="add2.invalid && add2.touched"
-    #add2="ngModel"
-     [(ngModel)]="userModel.add2"/>
-     <small class="text-danger"[class.d-none]="add2.untouched || add2.valid">required*</small>
+    [class.is-invalid]="add.invalid && add.touched"
+    #add="ngModel"
+    [(ngModel)]="userModel.add"/>
+    <small class="text-danger"[class.d-none]="add.untouched || add.valid">required*</small>
     <br/>
     <input type="text" name="city" placeholder="city" class="form-control"
     required
