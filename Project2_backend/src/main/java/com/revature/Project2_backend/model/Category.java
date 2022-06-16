@@ -1,9 +1,15 @@
 package com.revature.Project2_backend.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "category")
+@Entity
+@NoArgsConstructor
+@Data
+@Table(name = "category")
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,22 +18,7 @@ public class Category implements Serializable {
     @Column(unique = true)
     private String catName;
 
-    public Category() {
-    }
-
-    public long getCatId() {
-        return catId;
-    }
-
-    public void setCatId(long catId) {
-        this.catId = catId;
-    }
-
-    public String getCatName() {
-        return catName;
-    }
-
-    public void setCatName(String catName) {
-        this.catName = catName;
-    }
+  public Category(String catName) {
+    this.catName = catName;
+  }
 }

@@ -1,68 +1,33 @@
 package com.revature.Project2_backend.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name = "food")
-public class FoodItems {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
-    private long foodId;
-    @Column(unique = true)
-    private String foodName;
-    private String description;
-    private float cost;
-    private long categoryId;
-    private String picture;
+@Entity
+@NoArgsConstructor
+@Data
+@Table(name = "food")
+public class FoodItems implements Serializable {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(nullable = false, unique = true)
+  private Long foodId;
+  @Column(nullable = false)
+  private long categoryId;
+  @Column(nullable = false, unique = true)
+  private String name;
+  private float price;
+  private String description;
+  private String picture;
 
-    public FoodItems() {
-    }
-
-    public long getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(long foodId) {
-        this.foodId = foodId;
-    }
-
-    public String getFoodName() {
-        return foodName;
-    }
-
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    public long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+  public FoodItems(String name, float price, String description, String picture, long categoryId) {
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.picture = picture;
+    this.categoryId = categoryId;
+  }
 }

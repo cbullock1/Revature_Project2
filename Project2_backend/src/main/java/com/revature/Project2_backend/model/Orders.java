@@ -1,40 +1,26 @@
 package com.revature.Project2_backend.model;
 
-import javax.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity(name = "orders")
-public class Orders {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@NoArgsConstructor
+@Data
+@Table(name = "orders")
+public class Orders implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private long orderId;
-    private long UserId;
+    @Column(nullable = false)
+    private long userId;
     private String orderStatus;
 
-    public Orders() {
-    }
-
-    public long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
-    }
-
-    public long getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(long userId) {
-        UserId = userId;
-    }
-
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
+  public Orders(long userId, String orderStatus){
+    this.userId = userId;
+    this.orderStatus = orderStatus;
+  }
 }

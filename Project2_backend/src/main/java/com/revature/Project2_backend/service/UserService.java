@@ -17,6 +17,7 @@ public class UserService {
     }
 
     public User addUser(User user){
+      /*
         user.setName("Mark");
         user.setEmail("m@gmail.com");
         user.setPassword("test");
@@ -25,21 +26,23 @@ public class UserService {
         user.setPhone("test");
         user.setState("IDK");
         user.setZip("01");
+        */
         return userRepo.save(user);
+
     }
     public List<User> getUsers(){
         return userRepo.findAll();
     }
 
-    public User findUserById(final Long userId){
-        return userRepo.findUserByuserId(userId)
-                .orElseThrow(() -> new UserNotFoundException("User Id " + userId + " was not found"));
+    public User findUserById(final Long User_Id){
+        return userRepo.findUserByuserId(User_Id)
+                .orElseThrow(() -> new UserNotFoundException("User Id " + User_Id + " was not found"));
     }
 
     public User updateUser(User user){
         return userRepo.save(user);
     }
-    public void deleteUser(Long userId){
-        userRepo.deleteUserByuserId(userId);
+    public void deleteUser(Long User_Id){
+        userRepo.deleteUserByuserId(User_Id);
     }
 }
