@@ -24,6 +24,9 @@ import { OrderStatusPageComponent } from './page/order-status-page/order-status-
 import { LogoutPageComponent } from './page/logout-page/logout-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './service/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import { ProfileDisplayComponent } from './Components/profile-display/profile-display.component';
+import { ProfilePageComponent } from './page/profile-page/profile-page.component';
 
 
 
@@ -47,7 +50,9 @@ import { AuthService } from './service/auth.service';
     RegisterPageComponent,
     OrderHistoryPageComponent,
     OrderStatusPageComponent,
-    LogoutPageComponent
+    LogoutPageComponent,
+    ProfileDisplayComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,8 @@ import { AuthService } from './service/auth.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

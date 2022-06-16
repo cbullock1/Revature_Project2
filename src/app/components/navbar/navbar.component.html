@@ -34,21 +34,21 @@
             </li>
             -->
             <li class="nav-item">
-                <a class="nav-link" routerLink="/status">Current Order</a>
+                <a class="nav-link" *ngIf="isLogged" routerLink="/status">Current Order</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" routerLink="#">Profile</a>
+                <a class="nav-link" *ngIf="isLogged" routerLink="/profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/register">Register</a>
+                <a class="nav-link" *ngIf="!isLogged" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="!isLogged" routerLink="/register">Register</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" routerLink="/logout">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/login">Login</a>
+                <a class="nav-link" *ngIf="isLogged" routerLink="/logout">Logout</a>
             </li>
         </ul>
     </div>
