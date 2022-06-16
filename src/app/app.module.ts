@@ -23,6 +23,7 @@ import { OrderHistoryPageComponent } from './page/order-history-page/order-histo
 import { OrderStatusPageComponent } from './page/order-status-page/order-status-page.component';
 import { LogoutPageComponent } from './page/logout-page/logout-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './service/auth.service';
 
 
 
@@ -54,7 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

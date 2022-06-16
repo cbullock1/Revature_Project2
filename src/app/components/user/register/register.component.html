@@ -1,89 +1,67 @@
-<div class ="row">
-<div class="col-lg-4"></div>
-<div class="col-lg-4">
-<div class="wrapper">
-    
-<h1>Register Yourself</h1>
-<hr/>
-<form #registerForm="ngForm"  (ngSubmit)="OnSubmitHandler()">
-    <!-- <h2>{{registerForm.value | json}}</h2> -->
-    <div class="form-group">
-    
-     <label for="">First Name</label>
-     <input type="text" name="firstname" class="form-control"
-     required
-     [class.is-invalid]="firstname.invalid && firstname.touched"
-     #firstname="ngModel" 
-         [(ngModel)]="userModel.firstname"/>
-     <small class="text-danger"[class.d-none]="firstname.untouched || firstname.valid">required*</small>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <div class="wrapper">
+
+      <h1>Register Yourself</h1>
+      <hr />
+      <form #registerForm="ngForm" (ngSubmit)="OnSubmitHandler()">
+        <!-- <h2>{{registerForm.value | json}}</h2> -->
+        <div class="form-group">
+
+          <label for="">Full Name</label>
+          <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required
+            [class.is-invalid]="name.invalid && name.touched" #name="ngModel" [(ngModel)]="userModel.name" />
+          <small class="text-danger" [class.d-none]="name.untouched || name.valid">required*</small>
+        </div>
+
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" name="email" class="form-control" required
+            [class.is-invalid]="email.invalid && email.touched" #email="ngModel" [(ngModel)]="userModel.email" />
+          <small class="text-danger" [class.d-none]="email.untouched || email.valid">required*</small>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" name="password" class="form-control" required
+            [class.is-invalid]="password.invalid && password.touched" #password="ngModel"
+            [(ngModel)]="userModel.password" />
+          <small class="text-danger" [class.d-none]="password.untouched || password.valid">required*</small>
+        </div>
+        <div class="form-group">
+          <label for="">Phone Number</label>
+          <input type="text" name="phone" class="form-control" required
+            [class.is-invalid]="phone.invalid && phone.touched" #phone="ngModel" [(ngModel)]="userModel.phone" />
+          <small class="text-danger" [class.d-none]="phone.untouched || phone.valid">required*</small>
+        </div>
+        <div>
+          <label for="">Address</label>
+          <input type="text" name="add" placeholder="street address" class="form-control" required
+            [class.is-invalid]="add.invalid && add.touched" #add="ngModel" [(ngModel)]="userModel.address" />
+          <small class="text-danger" [class.d-none]="add.untouched || add.valid">required*</small>
+          <br />
+          <input type="text" name="city" placeholder="city" class="form-control" required
+            [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.city" />
+          <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
+          <br />
+          <input type="text" name="state" placeholder="state" class="form-control" required
+            [class.is-invalid]="state.invalid && state.touched" #state="ngModel" [(ngModel)]="userModel.state" />
+          <small class="text-danger" [class.d-none]="state.untouched || state.valid">required*</small>
+          <br />
+          <input type="text" name="code" placeholder="zipcode" class="form-control" required
+            [class.is-invalid]="code.invalid && code.touched" #code="ngModel" [(ngModel)]="userModel.zip" />
+          <small class="text-danger" [class.d-none]="code.untouched || code.valid">required*</small>
+          <br />
+        </div>
+        <input type="submit" value="Register" [disabled]="registerForm.invalid" class="btn" />
+        <br />
+        <br />
+        <a href="#">Already Register?Click Here</a>
+
+
+      </form>
     </div>
-     <div class="form-group">
-     <label for="">Last Name</label>  
-     <input type="text" name="lastname" class="form-control"
-     required
-     [class.is-invalid]="lastname.invalid && lastname.touched"
-     #lastname="ngModel" 
-      [(ngModel)]="userModel.lastname"/>
-      <small class="text-danger"[class.d-none]="lastname.untouched || lastname.valid">required*</small>
-    </div>
-  <div class="form-group">
-    <label for="">Email</label>
-    <input type="text" name="email" class="form-control"
-    required
-    [class.is-invalid]="email.invalid && email.touched"
-    #email="ngModel"
-     [(ngModel)]="userModel.email"/>
-     <small class="text-danger"[class.d-none]="email.untouched || email.valid">required*</small>
+
   </div>
-<div class="form-group">
-    <label for="">Phone Number</label>
-    <input type="text" name="phone" class="form-control"
-    required
-    [class.is-invalid]="phone.invalid && phone.touched"
-    #phone="ngModel"
-     [(ngModel)]="userModel.phone"/>
-     <small class="text-danger"[class.d-none]="phone.untouched || phone.valid">required*</small>
-    </div>
-<div>
-    <label for="">Address</label>
-    <input type="text" name="add" placeholder="street address" class="form-control"
-    required
-    [class.is-invalid]="add.invalid && add.touched"
-    #add="ngModel"
-    [(ngModel)]="userModel.add"/>
-    <small class="text-danger"[class.d-none]="add.untouched || add.valid">required*</small>
-    <br/>
-    <input type="text" name="city" placeholder="city" class="form-control"
-    required
-    [class.is-invalid]="city.invalid && city.touched"
-    #city="ngModel"
-     [(ngModel)]="userModel.city"/>
-     <small class="text-danger"[class.d-none]="city.untouched || city.valid">required*</small>
-    <br/>
-    <input type="text" name="state" placeholder="state" class="form-control" 
-    required
-    [class.is-invalid]="state.invalid && state.touched"
-    #state="ngModel"
-    [(ngModel)]="userModel.state"/>
-    <small class="text-danger"[class.d-none]="state.untouched || state.valid">required*</small>
-    <br/>
-    <input type="text" name="code" placeholder="zipcode" class="form-control"
-    required
-    [class.is-invalid]="code.invalid && code.touched"
-    #code="ngModel"
-     [(ngModel)]="userModel.code"/>
-     <small class="text-danger"[class.d-none]="code.untouched || code.valid">required*</small>
-     <br/>
-</div>
- <input type="submit" value="Register" [disabled]="registerForm.invalid" class="btn"/>
- <br/>
- <br/>
- <a href="#">Already Register?Click Here</a>
-
-
-</form>
-</div>
-
-</div>
-<div class="col-lg-4"></div>
+  <div class="col-lg-4"></div>
 </div>
