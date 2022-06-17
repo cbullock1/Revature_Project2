@@ -46,9 +46,13 @@ public class UserResource {
 
     @Transactional
     @DeleteMapping("/userDelete/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable("id") Long userId){
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long userId) {
+      User findUser = userService.findUserById(userId);
+      if(findUser != null){
         userService.deleteUser(userId);
         return new ResponseEntity<>(HttpStatus.OK);
+      }
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/login")

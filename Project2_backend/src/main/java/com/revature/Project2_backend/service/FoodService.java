@@ -36,4 +36,8 @@ public class FoodService {
   public void  deleteFoodById(Long foodId){
    foodRepo.deleteByfoodId(foodId);
   }
+
+  public FoodItems updateFood(FoodItems food){
+    return foodRepo.save(food);
+  }
 }
