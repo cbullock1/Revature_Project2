@@ -1,6 +1,8 @@
 package com.revature.Project2_backend.controllers;
 
-import com.revature.Project2_backend.model.User;
+import com.revature.Project2_backend.model.forUser.User;
+import com.revature.Project2_backend.model.forUser.UserToken;
+import com.revature.Project2_backend.model.forUser.loginToken;
 import com.revature.Project2_backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +47,12 @@ public class UserResource {
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long userId){
         userService.deleteUser(userId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserToken> loginAttempt(@RequestBody loginToken login){
+      UserToken loggedin = userService.findUserbyemailANDpassword(login.getEmail(), login.getPassword());
+      return new ResponseEntity<>(loggedin, HttpStatus.OK);
     }
 
 

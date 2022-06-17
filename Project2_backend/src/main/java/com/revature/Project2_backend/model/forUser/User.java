@@ -1,4 +1,4 @@
-package com.revature.Project2_backend.model;
+package com.revature.Project2_backend.model.forUser;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
