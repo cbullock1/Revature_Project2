@@ -1,6 +1,7 @@
 package com.revature.Project2_backend.controllers;
 import com.revature.Project2_backend.model.Orders;
 import com.revature.Project2_backend.service.OrdersService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,14 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/Orders")
 public class OrderResource {
 
   private final OrdersService ordersService;
 
-  public OrderResource(OrdersService order){
-    this.ordersService = order;
-  }
 
   @GetMapping
   public ResponseEntity<List<Orders>> getOrders(){

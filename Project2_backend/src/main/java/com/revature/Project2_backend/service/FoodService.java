@@ -28,4 +28,12 @@ public class FoodService {
   public FoodItems findByFoodId(Long foodId){
     return foodRepo.findByfoodId(foodId).orElseThrow(() -> new FoodItemNotFoundException("The food for " + foodId + " is not found"));
   }
+
+  public List<FoodItems> findByFoodCatId(Long categoryId){
+    return foodRepo.findBycategoryId(categoryId)
+      .orElseThrow(() -> new FoodItemNotFoundException("There is no food for the Category with the id of " + categoryId));
+  }
+  public void  deleteFoodById(Long foodId){
+   foodRepo.deleteByfoodId(foodId);
+  }
 }
