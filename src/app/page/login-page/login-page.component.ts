@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cookie: CookieService, private route: Router) {
+    if(this.cookie.check("userId")){
+      this.route.navigate(['/home/UserLoggedIn'])
+
+    }
+   }
 
   ngOnInit(): void {
   }

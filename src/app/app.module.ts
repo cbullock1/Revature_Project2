@@ -23,6 +23,12 @@ import { OrderHistoryPageComponent } from './page/order-history-page/order-histo
 import { OrderStatusPageComponent } from './page/order-status-page/order-status-page.component';
 import { LogoutPageComponent } from './page/logout-page/logout-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './service/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import { ProfileDisplayComponent } from './Components/profile-display/profile-display.component';
+import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+import { CartDisplayComponent } from './Components/cart-display/cart-display.component';
+import { CartPageComponent } from './page/cart-page/cart-page.component';
 
 
 
@@ -46,7 +52,11 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterPageComponent,
     OrderHistoryPageComponent,
     OrderStatusPageComponent,
-    LogoutPageComponent
+    LogoutPageComponent,
+    ProfileDisplayComponent,
+    ProfilePageComponent,
+    CartDisplayComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService,
+              CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
