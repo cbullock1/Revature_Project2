@@ -2,49 +2,16 @@
     <div class="row row-cols-1 row-cols-md-2">
         
         <!-- Do NgFor on div below -->
-        <div class="col mb-4">
+        <div class="col mb-4" *ngFor="let category of categories">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a (click)="onButtonClicked(1)" class="btn btn-primary btn-block">View Items</a>
+              <h5 class="card-title">{{category.catName}}</h5>
+              <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <a (click)="onButtonClicked(category.catId)" class="btn btn-primary btn-block">View Items</a>
             </div>
           </div>
         </div>
-
-        <!-- Extra cards below are just for visalization purposes -->
-        <div class="col mb-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a (click)="onButtonClicked(2)" class="btn btn-primary btn-block">View Items</a>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-              <a (click)="onButtonClicked(3)" class="btn btn-primary btn-block">View Items</a>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a (click)="onButtonClicked(4)" class="btn btn-primary btn-block">View Items</a>
-            </div>
-          </div>
-        </div>
-        <!-- Eveything above is for visalization purposes -->
 
     </div>
 </div>
