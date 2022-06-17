@@ -14,14 +14,14 @@ public class Cart implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(nullable = false, unique = true)
-  private long cartID;
+  private long cartId;
   @Column(nullable = false)
-  private long orderID;
+  private long orderId;
   @Column(nullable = false)
-  private long foodID;
+  private long foodId;
 
-  public Cart(long orderID, long foodID) {
-    this.orderID = orderID;
-    this.foodID = foodID;
+  public Cart(long orderId, long foodId) {
+    this.orderId = orderId;
+    this.foodId = foodId;
   }
 }
