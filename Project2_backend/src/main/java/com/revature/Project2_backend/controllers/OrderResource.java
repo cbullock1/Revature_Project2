@@ -1,6 +1,8 @@
 package com.revature.Project2_backend.controllers;
 import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.forUser.User;
 import com.revature.Project2_backend.service.OrdersService;
+import com.revature.Project2_backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.List;
 public class OrderResource {
 
   private final OrdersService ordersService;
+  private final UserService userService;
 
 
   @GetMapping
@@ -25,7 +28,13 @@ public class OrderResource {
 
   @PostMapping
   public ResponseEntity<Orders> addOrder(@RequestBody Orders order){
-    Orders ordered = ordersService.addOrder(order);
+    User user = userService.findUserById(order.getUserId());
+    Orders ordered;
+    if(user != null){
+      ordered = ordersService.addOrder(order);
+    }
+    else ordered = null;
+
     return new ResponseEntity<>(ordered, HttpStatus.CREATED);
   }
 

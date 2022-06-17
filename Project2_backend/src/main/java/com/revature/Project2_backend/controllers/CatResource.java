@@ -16,12 +16,12 @@ import java.util.List;
 public class CatResource {
   private final CatService catService;
 
-  @GetMapping
+  @GetMapping("/getCats")
   public ResponseEntity<List<Category>> getCats(){
     List<Category> cats = catService.findAllCategory();
     return new ResponseEntity<>(cats, HttpStatus.OK);
   }
-  @PostMapping
+  @PostMapping("/addCat")
   public ResponseEntity<Category> addCat(@RequestBody Category cat){
     Category category = catService.addCat(cat);
     return new ResponseEntity<>(category, HttpStatus.CREATED);
