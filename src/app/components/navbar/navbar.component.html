@@ -45,6 +45,10 @@
                 <a class="nav-link" *ngIf="isLogged" routerLink="/profile">Profile</a>
             </li>
             <li class="nav-item">
+                <!-- <button class="btn btn-dark" (click)="onCartClk()" *ngIf="isLogged">Cart</button> -->
+                <a class="nav-link" *ngIf="isLogged" routerLink="/cart">Cart</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" *ngIf="!isLogged" routerLink="/login">Login</a>
             </li>
             <li class="nav-item">

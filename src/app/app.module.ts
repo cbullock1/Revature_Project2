@@ -27,6 +27,8 @@ import { AuthService } from './service/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ProfileDisplayComponent } from './Components/profile-display/profile-display.component';
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+import { CartDisplayComponent } from './Components/cart-display/cart-display.component';
+import { CartPageComponent } from './page/cart-page/cart-page.component';
 
 
 
@@ -52,7 +54,9 @@ import { ProfilePageComponent } from './page/profile-page/profile-page.component
     OrderStatusPageComponent,
     LogoutPageComponent,
     ProfileDisplayComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    CartDisplayComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,

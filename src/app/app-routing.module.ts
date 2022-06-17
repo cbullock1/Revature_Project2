@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router'
 import { OrderHistoryComponent } from './components/user/order-history/order-history.component';
+import { CartPageComponent } from './page/cart-page/cart-page.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginPageComponent } from './page/login-page/login-page.component';
 import { LogoutPageComponent } from './page/logout-page/logout-page.component';
@@ -24,6 +25,7 @@ const routes : Routes = [
  {path:'register', component:RegisterPageComponent},
  {path:'history', component:OrderHistoryPageComponent},
  {path:'status', component:OrderStatusPageComponent},
+ {path:'cart', component:CartPageComponent},
  {path: '**', component:NotfoundComponent}
 ]
 
