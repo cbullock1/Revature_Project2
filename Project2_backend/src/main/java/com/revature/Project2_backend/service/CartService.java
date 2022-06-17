@@ -5,6 +5,8 @@ import com.revature.Project2_backend.repo.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CartService {
   private final CartRepo cartRepo;
@@ -18,12 +20,16 @@ public class CartService {
     return cartRepo.save(cart);
   }
 
-  public void deleteOrderByCartId(Long cartId){
-    cartRepo.deleteBycartId(cartId);
+  public List<Cart> findAllCart(){
+    return cartRepo.findAll();
   }
 
-  public void deleteOrderByOrderId(Long orderId){
-    cartRepo.deleteByorderId(orderId);
+  public void deleteByCartId(Long cartId){
+    cartRepo.deleteByCartId(cartId);
+  }
+
+  public void deleteByOrderId(Long orderId){
+    cartRepo.deleteByOrderId(orderId);
   }
 
 }

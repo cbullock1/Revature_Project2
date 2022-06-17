@@ -43,6 +43,7 @@ public class UserResource {
         User user = userService.updateUser(updatedUser);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
     @Transactional
     @DeleteMapping("/userDelete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long userId){
