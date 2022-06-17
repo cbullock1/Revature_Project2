@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  //cartDisplay :boolean;
+
+  constructor(private cookie: CookieService) {
+    //console.log(this.cookie.check("CartDisplay"))
+    // if(this.cookie.get("CartDisplay")=="true"){
+    //   this.cartDisplay = true;
+    // }
+    // else{
+    //   this.cartDisplay = false;
+    // }
+   }
 
   ngOnInit(): void {
+    
+    // if(this.cookie.get("CartDisplay")=="true"){
+    //   this.cartDisplay = true;
+    // }
+    // else{
+    //   this.cartDisplay = false;
+    // }
+    
   }
+  
+
+  
 
 }

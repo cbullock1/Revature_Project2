@@ -14,4 +14,20 @@ export class NavbarComponent implements OnInit {
     this.isLogged = this.cookie.check("userId")
   }
 
+  // onCartClk(){
+  //   //console.log("works")
+  //   if(this.cookie.check("CartDisplay")){
+  //     if(this.cookie.get("CartDisplay") == "true"){
+  //       this.cookie.set("CartDisplay", "false");
+  //     }
+  //     else{
+  //       this.cookie.set("CartDisplay", "true");
+  //       }
+  //   }
+  //   else{
+  //     this.cookie.set("CartDisplay", "false")
+  //   }
+  //    console.log(this.cookie.get("CartDisplay"))
+  // }
+
 }
