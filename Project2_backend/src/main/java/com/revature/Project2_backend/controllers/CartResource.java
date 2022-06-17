@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/Cart")
 public class CartResource {
   private final CartService cartService;
 
@@ -20,14 +20,15 @@ public class CartResource {
   }
 
 
-  @GetMapping("/getAllCart")
+  @GetMapping("/getAll")
   public ResponseEntity<List<Cart>> getAllCart(){
-    return new ResponseEntity<>(getCartList(), HttpStatus.OK);
+    List<Cart> carts = cartService.findAllCart();
+    return new ResponseEntity<>(carts, HttpStatus.OK);
   }
 
   @GetMapping("/getCart/{orderId}")
   public ResponseEntity<List<Cart>> getCartByOrder(@PathVariable("orderId") Long orderId){
-    List<Cart> carts = getCartList();
+    List<Cart> carts = cartService.findAllCart();
     List<Cart> cartsInOrder = new ArrayList<>();
     for(Cart cart: carts) {
       if(cart.getOrderId() == orderId) cartsInOrder.add(cart);
@@ -42,20 +43,16 @@ public class CartResource {
   }
 
   @Transactional
-  @DeleteMapping("/deleteByOrderId/{orderId}")
+  @DeleteMapping("/DeleteOrderId/{orderId}")
   public ResponseEntity<?> deleteCartItemByOrderId(@PathVariable("orderId") Long orderId){
     cartService.deleteByOrderId(orderId);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @Transactional
-  @DeleteMapping("/deleteByCartId/{cartId}")
+  @DeleteMapping("/DeleteCartId/{cartId}")
   public ResponseEntity<?> deleteCartItemBCartId(@PathVariable("cartId") Long cartId){
     cartService.deleteByCartId(cartId);
     return new ResponseEntity<>(HttpStatus.OK);
-  }
-
-  public List<Cart> getCartList(){
-    return cartService.findAllCart();
   }
 }

@@ -17,13 +17,13 @@ public class FoodResource {
 
   private final FoodService foodService;
 
-  @GetMapping
+  @GetMapping("/getFoods")
   public ResponseEntity<List<FoodItems>> getFood(){
     List<FoodItems> foods = foodService.getFoodList();
     return new ResponseEntity<>(foods, HttpStatus.OK);
   }
 
-  @PostMapping
+  @PostMapping("/AddFood")
   public ResponseEntity<FoodItems> addFood(@RequestBody FoodItems food){
     FoodItems foodAdded = foodService.addFood(food);
     return new ResponseEntity<>(foodAdded, HttpStatus.CREATED);
