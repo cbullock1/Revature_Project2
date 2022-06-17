@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface CatRepo extends JpaRepository<Category, Long> {
     Optional<Category> findBycatId(Long catId);
+    void deleteBycatId(Long catId);
 
 }

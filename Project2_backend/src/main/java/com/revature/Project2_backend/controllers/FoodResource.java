@@ -5,6 +5,7 @@ import com.revature.Project2_backend.service.FoodService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,21 +20,21 @@ public class FoodResource {
   @GetMapping
   public ResponseEntity<List<FoodItems>> getFood(){
     List<FoodItems> foods = foodService.getFoodList();
-    return new ResponseEntity<List<FoodItems>>(foods, HttpStatus.OK);
+    return new ResponseEntity<>(foods, HttpStatus.OK);
   }
 
   @PostMapping
   public ResponseEntity<FoodItems> addFood(@RequestBody FoodItems food){
     FoodItems foodAdded = foodService.addFood(food);
-    return new ResponseEntity<FoodItems>(foodAdded, HttpStatus.CREATED);
+    return new ResponseEntity<>(foodAdded, HttpStatus.CREATED);
   }
 
   @GetMapping("/id/{foodId}")
   public ResponseEntity<FoodItems> getFoodById(@PathVariable("foodId") long foodId){
     FoodItems food = foodService.findByFoodId(foodId);
-    return new ResponseEntity<FoodItems>(food, HttpStatus.OK);
+    return new ResponseEntity<>(food, HttpStatus.OK);
   }
-
+  @Transactional
   @DeleteMapping("/id/{foodId}")
   public ResponseEntity deleteFoodById(@PathVariable("foodId") long foodId){
     foodService.deleteFoodById(foodId);
@@ -43,7 +44,7 @@ public class FoodResource {
   @GetMapping("/category/{categoryId}")
   public ResponseEntity<List<FoodItems>> getFoodsByCategory(@PathVariable("categoryId") long categoryId){
     List<FoodItems> foods = foodService.findByFoodCatId(categoryId);
-    return new ResponseEntity<List<FoodItems>>(foods, HttpStatus.OK);
+    return new ResponseEntity<>(foods, HttpStatus.OK);
   }
 
 

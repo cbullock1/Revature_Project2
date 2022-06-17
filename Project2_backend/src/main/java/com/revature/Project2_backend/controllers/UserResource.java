@@ -6,6 +6,7 @@ import com.revature.Project2_backend.model.forUser.loginToken;
 import com.revature.Project2_backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class UserResource {
         User user = userService.updateUser(updatedUser);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
+    @Transactional
     @DeleteMapping("/userDelete/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long userId){
         userService.deleteUser(userId);

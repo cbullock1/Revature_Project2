@@ -22,4 +22,6 @@ public class CatService {
   public List<Category> findAllCategory(){
     return catRepo.findAll();
   }
+
+  public void deleteCat(Long catId){catRepo.deleteBycatId(catId);}
 }
