@@ -17,16 +17,7 @@
         </tr>
         <tr>
             <td colspan="1"><h1>Email</h1></td>
-            <td colspan="9" class="h1">
-                    <input type="text" name="email" class="form-control"
-                    pattern="([A-Za-z\d\-]{1,})@([A-Za-z\d\-]{1,})\.([a-z]{2,3})"
-                    required
-                     #email="ngModel" 
-                     [(ngModel)] = "userModel.email"
-                    [class.is-invalid]="email.touched && email.invalid"/>
-                 <small class="text-danger"[class.d-none]="email.untouched || email.valid">Please enter email in proper format</small>
-                
-            </td>
+            <td colspan="9" class="h1">{{Cemail}}</td>
         </tr>
         <tr>
             <td colspan="1"><h1>Phone</h1></td>
@@ -50,7 +41,9 @@
         <tr>
             <td colspan="1"><h1>State</h1></td>
             <td colspan="9" class="h1">
-                <input type="text" name="city" placeholder="city" class="form-control" required
+                <input type="text" name="city" placeholder="city" class="form-control" 
+                    pattern="[A-Z]{2}"
+                    required
                     [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.state" />
                 <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
             </td>

@@ -52,7 +52,9 @@
             [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.city" />
           <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
           <br />
-          <input type="text" name="state" placeholder="state" class="form-control" required
+          <input type="text" name="state" placeholder="state" class="form-control"
+            pattern="[A-Z]{2}" 
+            required
             [class.is-invalid]="state.invalid && state.touched" #state="ngModel" [(ngModel)]="userModel.state" />
           <small class="text-danger" [class.d-none]="state.untouched || state.valid">required*</small>
           <br />
