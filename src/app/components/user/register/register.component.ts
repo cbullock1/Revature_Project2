@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class RegisterComponent implements OnInit {
 userModel=new User()
- 
+
 constructor(private authService:AuthService, private route: Router) { }
 
   ngOnInit(): void {
