@@ -4,11 +4,13 @@ import com.revature.Project2_backend.model.forUser.User;
 import com.revature.Project2_backend.service.OrdersService;
 import com.revature.Project2_backend.service.UserService;
 import lombok.AllArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,40 +21,75 @@ public class OrderResource {
   private final OrdersService ordersService;
   private final UserService userService;
 
-
-  @GetMapping
+  @GetMapping("/getOrderList")
   public ResponseEntity<List<Orders>> getOrders(){
     List<Orders> orders = ordersService.findAllOrders();
-    return new ResponseEntity<>(orders, HttpStatus.OK);
+    if(orders.size() !=0) {
+      return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
-  @PostMapping
+  @PostMapping("/addOrders")
   public ResponseEntity<Orders> addOrder(@RequestBody Orders order){
     User user = userService.findUserById(order.getUserId());
-    Orders ordered;
     if(user != null){
-      ordered = ordersService.addOrder(order);
+      List<Orders> userOrders = ordersForUser(order.getUserId());
+      boolean hasPending = false;
+      if(userOrders.size() != 0) {
+        for(Orders orders: userOrders) {
+          if (orders.getOrderStatus().equalsIgnoreCase("pending")) {
+            hasPending = true;
+            break;
+          }
+        }
+      }
+      if(!hasPending){
+        return new ResponseEntity<>(ordersService.addOrder(order), HttpStatus.OK);
+      }
     }
-    else ordered = null;
-
-    return new ResponseEntity<>(ordered, HttpStatus.CREATED);
+    return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
   }
 
   @GetMapping("/orderId/{orderId}")
   public ResponseEntity<Orders> getOrder(@PathVariable("orderId") long orderId){
     Orders order = ordersService.findByOrderId(orderId);
-    return new ResponseEntity<>(order, HttpStatus.OK);
+    if(order != null){
+      return new ResponseEntity<>(order, HttpStatus.OK);
+    }
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
-  @PutMapping
+  @PutMapping("/orderUpdate")
   public ResponseEntity<Orders> updateOrder(@RequestBody Orders upOrder){
-    Orders updatedOrder = ordersService.updateOrder(upOrder);
-    return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
+    Orders findOrder = ordersService.findByOrderId(upOrder.getOrderId());
+    if(findOrder != null){
+      return new ResponseEntity<>(ordersService.updateOrder(upOrder), HttpStatus.OK);
+    }
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
   @Transactional
   @DeleteMapping("/orderId/{orderId}")
   public ResponseEntity<?> deleteOrder(@PathVariable("orderId") long orderId) {
-    ordersService.deleteOrders(orderId);
-    return new ResponseEntity<>(HttpStatus.OK);
+    Orders findOrder = ordersService.findByOrderId(orderId);
+    if(findOrder != null){
+      ordersService.deleteOrders(orderId);
+      return new ResponseEntity<>(HttpStatus.OK);
+    }
+    return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+  }
+
+  @GetMapping("/getByUser/{userId}")
+  public ResponseEntity<List<Orders>> getByUserId(@PathVariable("userId") Long userId){
+    List<Orders> byUser = ordersForUser(userId);
+    if(byUser.size() != 0) return new ResponseEntity<>(byUser, HttpStatus.OK);
+    else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  }
+
+  public List<Orders> ordersForUser(Long userId){
+    List<Orders> orders = ordersService.findAllOrders();
+    List<Orders> byUser = new ArrayList<>();
+    for(Orders order: orders) if(order.getUserId() == userId) byUser.add(order);
+    return byUser;
   }
 }
