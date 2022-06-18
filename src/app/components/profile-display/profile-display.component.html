@@ -41,11 +41,11 @@
         <tr>
             <td colspan="1"><h1>State</h1></td>
             <td colspan="9" class="h1">
-                <input type="text" name="city" placeholder="city" class="form-control" 
+                <input type="text" name="State" placeholder="State" class="form-control" 
                     pattern="[A-Z]{2}"
                     required
-                    [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.state" />
-                <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
+                    [class.is-invalid]="state.invalid && state.touched" #state="ngModel" [(ngModel)]="userModel.state" />
+                <small class="text-danger" [class.d-none]="state.untouched || state.valid">required*</small>
             </td>
         </tr>
         <tr>
