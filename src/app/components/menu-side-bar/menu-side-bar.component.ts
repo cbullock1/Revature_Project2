@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
+import { MenuItemDisplayComponent } from '../menu-item-display/menu-item-display.component';
 
 @Component({
   selector: 'app-menu-side-bar',
