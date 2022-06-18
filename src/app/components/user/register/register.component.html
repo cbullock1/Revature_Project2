@@ -17,20 +17,28 @@
 
         <div class="form-group">
           <label for="">Email</label>
-          <input type="text" name="email" class="form-control" required
+          <input type="text" name="email" 
+          pattern="([A-Za-z\d\-]{1,})@([A-Za-z\d\-]{1,})\.([a-z]{2,3})"
+          title="Must put email in the form of yourName@(provider).(extension)"
+          class="form-control" required
             [class.is-invalid]="email.invalid && email.touched" #email="ngModel" [(ngModel)]="userModel.email" />
           <small class="text-danger" [class.d-none]="email.untouched || email.valid">required*</small>
         </div>
         <div class="form-group">
           <label for="">Password</label>
-          <input type="password" name="password" class="form-control" required
+          <input type="password" name="password" class="form-control"
+          pattern="(\w|^\w){6,}"
+          required
             [class.is-invalid]="password.invalid && password.touched" #password="ngModel"
             [(ngModel)]="userModel.password" />
           <small class="text-danger" [class.d-none]="password.untouched || password.valid">required*</small>
         </div>
         <div class="form-group">
           <label for="">Phone Number</label>
-          <input type="text" name="phone" class="form-control" required
+          <input type="text" name="phone" class="form-control"
+          pattern="\(?([0-9]{3})\)?\-?([0-9]{3})\-?([0-9]{4})"
+          title="Please place phone number in form of (###)###-#### or ###-###-#### or number itself"
+          required
             [class.is-invalid]="phone.invalid && phone.touched" #phone="ngModel" [(ngModel)]="userModel.phone" />
           <small class="text-danger" [class.d-none]="phone.untouched || phone.valid">required*</small>
         </div>
@@ -48,7 +56,9 @@
             [class.is-invalid]="state.invalid && state.touched" #state="ngModel" [(ngModel)]="userModel.state" />
           <small class="text-danger" [class.d-none]="state.untouched || state.valid">required*</small>
           <br />
-          <input type="text" name="code" placeholder="zipcode" class="form-control" required
+          <input type="text" name="code" placeholder="zipcode" class="form-control"
+           pattern="([0-9]{5})(\-([0-9]{2}))?"
+            required
             [class.is-invalid]="code.invalid && code.touched" #code="ngModel" [(ngModel)]="userModel.zip" />
           <small class="text-danger" [class.d-none]="code.untouched || code.valid">required*</small>
           <br />

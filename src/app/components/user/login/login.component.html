@@ -11,25 +11,24 @@
     <div class="form-group">
     <label for="">Email</label>
     <input type="text" name="email" class="form-control"
+    pattern="([A-Za-z\d\-]{1,})@([A-Za-z\d\-]{1,})\.([a-z]{2,3})"
     required
      #email="ngModel" 
      ngModel
     [class.is-invalid]="email.touched && email.invalid"/>
- <small class="text-danger"[class.d-none]="email.untouched || email.valid">required(min 6 character)*</small>
+ <small class="text-danger"[class.d-none]="email.untouched || email.valid">Please enter email in proper format</small>
     </div>
  <div class="form-group">
     <label for=""> Password</label>
     <input type="password" name="password"
+    pattern="(\w|^\w){6,}"
     required minlength="6"
     #password="ngModel"
     ngModel
     [class.is-invalid]="password.touched && password.invalid"
     class="form-control"/>
-    <small class="text-danger"[class.d-none]="password.untouched || password.valid">required*</small>
+    <small class="text-danger"[class.d-none]="password.untouched || password.valid">required password of length 6 or more*</small>
   </div>
- <input type="checkbox"  name="reminder" >
-  <label for=""> Remember me</label><br>
-
   <a href="#">Forgot Password?</a>
  <br/>
  <br/>
