@@ -32,39 +32,34 @@ public class CartResource {
 
   @GetMapping("/getCart/{orderId}")
   public ResponseEntity<List<Cart>> getCartByOrder(@PathVariable("orderId") Long orderId){
-    List<Cart> carts = cartService.findAllCart();
-    List<Cart> cartsInOrder = new ArrayList<>();
-    for(Cart cart: carts) {
-      if(cart.getOrderId() == orderId) cartsInOrder.add(cart);
-    }
+    List<Cart> cartsInOrder = cartByOrderId(orderId);
     if(cartsInOrder.size() != 0) return new ResponseEntity<>(cartsInOrder, HttpStatus.OK);
-    else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @PostMapping("/add")
   public ResponseEntity<Cart> addCart(@RequestBody Cart cart){
     Orders findOrder = ordersService.findByOrderId(cart.getOrderId());
-    FoodItems findFood = foodService.findByFoodId(cart.getFoodId());
-    if(findOrder != null && findFood != null){
-      Cart newCart = cartService.addCart(cart);
-      return new ResponseEntity<>(newCart, HttpStatus.CREATED);
+    if(findOrder != null){
+      System.out.println(findOrder.getOrderStatus());
+      FoodItems findFood = foodService.findByFoodId(cart.getFoodId());
+      if(findFood != null && findOrder.getOrderStatus().equalsIgnoreCase("pending")){
+        Cart newCart = cartService.addCart(cart);
+        return new ResponseEntity<>(newCart, HttpStatus.CREATED);
+      }
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
   }
 
   @Transactional
   @DeleteMapping("/DeleteOrderId/{orderId}")
   public ResponseEntity<?> deleteCartItemByOrderId(@PathVariable("orderId") Long orderId){
-    List<Cart> carts = cartService.findAllCart();
-    List<Cart> cartsInOrder = new ArrayList<>();
-    for(Cart cart: carts) {
-      if(cart.getOrderId() == orderId) cartsInOrder.add(cart);
-    }
+    List<Cart> cartsInOrder = cartByOrderId(orderId);
     if(cartsInOrder.size() != 0) {
       cartService.deleteByOrderId(orderId);
       return new ResponseEntity<>(HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @Transactional
@@ -75,17 +70,13 @@ public class CartResource {
       cartService.deleteByCartId(cartId);
       return new ResponseEntity<>(HttpStatus.OK);
     }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @GetMapping("/CartItem/{orderId}")
   public ResponseEntity<List<CartToken>> getItemInCart(@PathVariable("orderId") Long orderId){
-    List<Cart> carts = cartService.findAllCart();
-    List<Cart> findCart = new ArrayList<>();
+    List<Cart> findCart = cartByOrderId(orderId);
     List<CartToken> itemInCart = new ArrayList<>();
-    for(Cart cart: carts) {
-      if(cart.getOrderId() == orderId) findCart.add(cart);
-    }
     if(findCart.size() !=0 ){
       for (Cart cart : findCart) {
         FoodItems food = foodService.findByFoodId(cart.getFoodId());
@@ -98,6 +89,16 @@ public class CartResource {
       }
       return new ResponseEntity<>(itemInCart, HttpStatus.OK);
     }
-    else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
+
+  public List<Cart> cartByOrderId(Long orderId) {
+    List<Cart> carts = cartService.findAllCart();
+    List<Cart> findCart = new ArrayList<>();
+    for (Cart cart : carts) {
+      if (cart.getOrderId() == orderId) findCart.add(cart);
+    }
+
+    return findCart;
   }
 }
