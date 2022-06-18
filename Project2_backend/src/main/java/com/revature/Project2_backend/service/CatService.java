@@ -1,5 +1,6 @@
 package com.revature.Project2_backend.service;
 
+import com.revature.Project2_backend.customExceptions.CatNotFoundException;
 import com.revature.Project2_backend.model.Category;
 import com.revature.Project2_backend.repo.CatRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,8 @@ public class CatService {
   }
 
   public void deleteCat(Long catId){catRepo.deleteBycatId(catId);}
+
+  public Category findByCatId(Long catId){
+    return catRepo.findBycatId(catId).orElseThrow(() -> new CatNotFoundException("Category ID " + catId + " not found"));
+  }
 }
