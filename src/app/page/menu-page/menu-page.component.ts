@@ -1,5 +1,9 @@
+import { LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { Cart } from 'src/app/model/cart';
+import { Order } from 'src/app/model/order';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -14,7 +18,7 @@ export class MenuPageComponent implements OnInit {
   FoodItems: any[] = [];
   current_url_var : any;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private data: DataService) {
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private data: DataService, private cookie: CookieService) {
     this.catId = this.activeRoute.snapshot.paramMap.get("menuCatId")
     console.log(this.catId);
    }
@@ -61,6 +65,30 @@ export class MenuPageComponent implements OnInit {
       })
     }
 
+
+  }
+  AddToCart(foodId: number){
+    //First checks if there is an order pending for user if not then it will make an order
+    if(this.cookie.check("userId")){
+      const check = this.cookie.check("orderStatus")
+      if(check){
+        const value:String = this.cookie.get("orderStatus")
+        if( value != "pending"){
+          const order = new Order(parseInt(this.cookie.get("userId")), "pending")
+          this.data.addOrder(order).subscribe(response =>{
+            this.cookie.set("orderStatus", response.data.orderStatus)
+            this.cookie.set("orderId", response.data.orderId)
+          })
+        }
+
+      }
+
+      const cart = new Cart(parseInt(this.cookie.get("orderId")), foodId)
+      this.data.addCart(cart).subscribe(response =>{ 
+        alert("This item has been added to your cart")
+      })
+
+    }
 
   }
 

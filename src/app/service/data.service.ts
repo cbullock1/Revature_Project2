@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from'rxjs';
 import { environment } from 'src/environments/environment';
+import { Order } from '../model/order';
+import { Cart } from '../model/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class DataService {
   }
 
   getAllFood():Observable<any>{
-    return this.http.get<any>(`${this.apiServerUrl}/Food`)
+    return this.http.get<any>(`${this.apiServerUrl}/Food/getFoodList`)
   }
 
   getAllFoodByCategory(catId:number):Observable<any>{
@@ -25,6 +27,14 @@ export class DataService {
 
   getOrderByOrderId(orderid:number):Observable<any>{
     return this.http.get<any>(`${this.apiServerUrl}/Orders/orderId/${orderid}`)
+  }
+
+  addOrder(order:Order):Observable<any>{
+    return this.http.post<any>(`${this.apiServerUrl}/Orders/addOrders`,order)
+
+  }
+  addCart(cart:Cart):Observable<any>{
+    return this.http.post<any>(`${this.apiServerUrl}/Cart/add`,cart)
   }
 
 }
