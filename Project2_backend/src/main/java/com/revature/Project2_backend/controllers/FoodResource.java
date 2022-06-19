@@ -19,6 +19,7 @@ public class FoodResource {
 
   private final FoodService foodService;
   private final CatService catService;
+  private final String absolutePath = (System.getProperty("user.dir") + "/src/main/food_images/").replaceAll("\\\\", "/");
 
   @GetMapping("/getFoodList")
   public ResponseEntity<List<FoodItems>> getFood(){
@@ -30,6 +31,8 @@ public class FoodResource {
   public ResponseEntity<FoodItems> addFood(@RequestBody FoodItems food){
     Category cat = catService.findByCatId(food.getCategoryId());
     if(cat != null){
+      String relativePath = cat.getCatName() + "/" + food.getName();
+      food.setPicture(absolutePath + relativePath + ".jpg");
       return new ResponseEntity<>(foodService.addFood(food), HttpStatus.CREATED);
     }
     else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
