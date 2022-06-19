@@ -1,9 +1,6 @@
 export class Order{
 constructor(
-    public orderid?:string,
-    public orderdate?:string,
-    public ordertime?:string,
-    public cooktime?:string,
+    public userId?:number,
     public orderstatus?:string
 
 ){}
