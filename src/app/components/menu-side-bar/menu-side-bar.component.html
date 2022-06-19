@@ -1,58 +1,22 @@
 <div class="List-Container">
 
     <div class="list-group">
-        <a (click)="onButtonClicked(1)" class="list-group-item list-group-item-action" [class.active] ="catId == 1">
+        <a routerLink="/menu" class="list-group-item list-group-item-action" [class.active] ="catId == null">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Full Menu</h5>
-            <small>3 days ago</small>
+            <!-- <small>3 days ago</small> -->
           </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small>And some small print.</small>
+          <!-- <p class="mb-1">Some placeholder content in a paragraph.</p> -->
+          <!-- <small>And some small print.</small> -->
         </a>
 
-        <a (click)="onButtonClicked(2)" class="list-group-item list-group-item-action" [class.active] ="catId == 2">
+        <a *ngFor="let category of categories" (click)="onButtonClicked(category.catId)" class="list-group-item list-group-item-action" [class.active] ="catId == category.catId">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Drinks</h5>
-            <small class="text-muted">3 days ago</small>
+            <h5 class="mb-1">{{category.catName}}</h5>
+            <!-- <small class="text-muted">3 days ago</small> -->
           </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-
-        <a (click)="onButtonClicked(3)" class="list-group-item list-group-item-action" [class.active] ="catId == 3">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Appetizers</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-
-        <a (click)="onButtonClicked(4)" class="list-group-item list-group-item-action" [class.active] ="catId == 4">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Lunch</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-
-        <a (click)="onButtonClicked(5)" class="list-group-item list-group-item-action" [class.active] ="catId == 5">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Dinner</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-
-        <a (click)="onButtonClicked(6)" class="list-group-item list-group-item-action" [class.active] ="catId == 6">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Desert</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
+          <!-- <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small class="text-muted">And some muted small print.</small> -->
         </a>
 
       </div>

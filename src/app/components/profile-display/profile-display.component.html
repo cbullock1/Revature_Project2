@@ -1,38 +1,87 @@
 <div class="container">
 
+    <form #updateProfile = "ngForm" (ngSubmit)="onSubmitHandler()" >
+        
     <table class="table table-dark table-hover">
         <tr>
             <td colspan="1"><h1>User ID</h1></td>
-            <td colspan="9" class="h1">{{id}}</td>
+            <td colspan="9" class="h1">{{Cid}}</td>
         </tr>
         <tr>
             <td colspan="1"><h1>Name</h1></td>
-            <td colspan="9" class="h1">{{name}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="name" class="form-control"  required
+                [class.is-invalid]="name.invalid && name.touched" #name="ngModel" [(ngModel)]="userModel.name" />
+              <small class="text-danger" [class.d-none]="name.untouched || name.valid">required*</small>
+            </td>
         </tr>
         <tr>
             <td colspan="1"><h1>Email</h1></td>
-            <td colspan="9" class="h1">{{email}}</td>
+            <td colspan="9" class="h1">{{Cemail}}</td>
         </tr>
         <tr>
             <td colspan="1"><h1>Phone</h1></td>
-            <td colspan="9" class="h1">{{phone}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="phone" class="form-control"
+                    pattern="\(?([0-9]{3})\)?\-?([0-9]{3})\-?([0-9]{4})"
+                    title="Please place phone number in form of (###)###-#### or ###-###-#### or number itself"
+                    required
+                    [class.is-invalid]="phone.invalid && phone.touched" #phone="ngModel" [(ngModel)]="userModel.phone" />
+                <small class="text-danger" [class.d-none]="phone.untouched || phone.valid">required*</small>
+            </td>
         </tr>
         <tr>
             <td colspan="1"><h1>Address</h1></td>
-            <td colspan="9" class="h1">{{address}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="add" placeholder="street address" class="form-control" required
+                    [class.is-invalid]="add.invalid && add.touched" #add="ngModel" [(ngModel)]="userModel.address" />
+                <small class="text-danger" [class.d-none]="add.untouched || add.valid">required*</small>
+            </td>
         </tr>
         <tr>
             <td colspan="1"><h1>State</h1></td>
-            <td colspan="9" class="h1">{{state}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="State" placeholder="State" class="form-control" 
+                    pattern="[A-Z]{2}"
+                    required
+                    [class.is-invalid]="state.invalid && state.touched" #state="ngModel" [(ngModel)]="userModel.state" />
+                <small class="text-danger" [class.d-none]="state.untouched || state.valid">required*</small>
+            </td>
         </tr>
         <tr>
             <td colspan="1"><h1>City</h1></td>
-            <td colspan="9" class="h1">{{city}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="city" placeholder="city" class="form-control" required
+                    [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.city" />
+                <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
+            </td>
         </tr>
         <tr>
             <td colspan="1"><h1>Zip code</h1></td>
-            <td colspan="9" class="h1">{{zip}}</td>
+            <td colspan="9" class="h1">
+                <input type="text" name="code" placeholder="zipcode" class="form-control" required
+                    pattern="([0-9]{5})(\-([0-9]{2}))?"
+                    [class.is-invalid]="code.invalid && code.touched" #code="ngModel" [(ngModel)]="userModel.zip" />
+                <small class="text-danger" [class.d-none]="code.untouched || code.valid">required*</small>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="1"><h1>Password Conformation</h1></td>
+            <td colspan="9" class="h1">
+                <input type="password" name="password" class="form-control"
+                     pattern="(\w|^\w){6,}"
+                     required
+                     [class.is-invalid]="password.invalid && password.touched" #password="ngModel"
+                     [(ngModel)]="userModel.password" />
+          <small class="text-danger" [class.d-none]="password.untouched || password.valid">required*</small>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Update" [disabled]="updateProfile.invalid" class="btn btn-dark btn-block" /></td>
         </tr>
     </table>
+      </form>
 
 </div>

@@ -1,9 +1,55 @@
 <app-navbar></app-navbar>
 <div class="row">
     <div class="col-lg-3">
-       <app-menu-side-bar></app-menu-side-bar>
+        <div class="List-Container">
+
+            <div class="list-group">
+                <a routerLink="/menu" class="list-group-item list-group-item-action" [class.active] ="catId == null">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Full Menu</h5>
+                    <!-- <small>3 days ago</small> -->
+                  </div>
+                  <!-- <p class="mb-1">Some placeholder content in a paragraph.</p> -->
+                  <!-- <small>And some small print.</small> -->
+                </a>
+        
+                <a *ngFor="let category of categories" (click)="onButtonClicked(category.catId)" class="list-group-item list-group-item-action" [class.active] ="catId == category.catId">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{category.catName}}</h5>
+                    <!-- <small class="text-muted">3 days ago</small> -->
+                  </div>
+                  <!-- <p class="mb-1">Some placeholder content in a paragraph.</p>
+                  <small class="text-muted">And some muted small print.</small> -->
+                </a>
+        
+              </div>
+        
+        
+        </div>
+        
     </div>
     <div class="col-lg-9">
-        <app-menu-item-display></app-menu-item-display>
+        <!-- Need to add the entire components to this page -->
+        <div class="Container-for-items text-center">
+            <h1 class="display-4">Menu Items</h1>
+        
+            <div class="row row-cols-1 row-cols-md-3">
+              
+                <div class="col mb-4" *ngFor="let Food of FoodItems">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{Food.name}}</h5>
+                      <p class="card-text">{{Food.description}}</p>
+                      <p class="card-text">{{Food.price | currency}}</p>
+                      <button class="btn btn-primary btn-block">Add to cart</button>
+                    </div>
+                  </div>
+                </div>
+        
+        
+              </div>
+        </div>
+        
     </div>
 </div>
