@@ -19,7 +19,7 @@ public class FoodResource {
 
   private final FoodService foodService;
   private final CatService catService;
-  private final String absolutePath = (System.getProperty("user.dir") + "/src/main/food_images/").replaceAll("\\\\", "/");
+  private final String absolutePath = "/assets/foodImages/";
 
   @GetMapping("/getFoodList")
   public ResponseEntity<List<FoodItems>> getFood(){

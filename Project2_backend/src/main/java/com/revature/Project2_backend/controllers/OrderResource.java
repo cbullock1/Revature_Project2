@@ -1,10 +1,15 @@
 package com.revature.Project2_backend.controllers;
-import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.FoodItems;
+import com.revature.Project2_backend.model.forCart.Cart;
+import com.revature.Project2_backend.model.forOrders.Orders;
+import com.revature.Project2_backend.model.forCart.CartToken;
+import com.revature.Project2_backend.model.forOrders.OrdersToken;
 import com.revature.Project2_backend.model.forUser.User;
+import com.revature.Project2_backend.service.CartService;
+import com.revature.Project2_backend.service.FoodService;
 import com.revature.Project2_backend.service.OrdersService;
 import com.revature.Project2_backend.service.UserService;
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +25,8 @@ public class OrderResource {
 
   private final OrdersService ordersService;
   private final UserService userService;
+  private final CartService cartService;
+  private final FoodService foodService;
 
   @GetMapping("/getOrderList")
   public ResponseEntity<List<Orders>> getOrders(){
@@ -83,7 +90,31 @@ public class OrderResource {
   public ResponseEntity<List<Orders>> getByUserId(@PathVariable("userId") Long userId){
     List<Orders> byUser = ordersForUser(userId);
     if(byUser.size() != 0) return new ResponseEntity<>(byUser, HttpStatus.OK);
-    else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
+
+  @GetMapping("/getOrderHistory/{userId}")
+  public ResponseEntity<List<CartToken>> getAllCart(@PathVariable("userId") Long userId){
+    List<Orders> orderByUser = ordersForUser(userId);
+    if(orderByUser.size() != 0){
+      List<CartToken> allItemOfUser = new ArrayList<>();
+      List<Cart> allCart = cartService.findAllCart();
+      for(Orders orders: orderByUser){
+        for(Cart cart: allCart){
+          if(cart.getOrderId() == orders.getOrderId()){
+            FoodItems currentFood = foodService.findByFoodId(cart.getFoodId());
+            CartToken token = new CartToken();
+            token.setCartId(cart.getCartId());
+            token.setOrderId(cart.getOrderId());
+            token.setName(currentFood.getName());
+            token.setPrice(currentFood.getPrice());
+            allItemOfUser.add(token);
+          }
+        }
+      }
+      return new ResponseEntity<>(allItemOfUser, HttpStatus.OK);
+    }
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   public List<Orders> ordersForUser(Long userId){

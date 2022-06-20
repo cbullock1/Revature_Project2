@@ -37,7 +37,7 @@
               
                 <div class="col mb-4" *ngFor="let Food of FoodItems">
                   <div class="card">
-                    <img [(src)]="Food.picture" class="card-img-top" alt="...">
+                    <img src="{{Food.picture}}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{Food.name}}</h5>
                       <p class="card-text">{{Food.description}}</p>
@@ -46,10 +46,7 @@
                     </div>
                   </div>
                 </div>
-        
-        
               </div>
         </div>
-        
     </div>
 </div>

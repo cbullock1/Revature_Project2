@@ -1,6 +1,6 @@
 package com.revature.Project2_backend.repo;
 
-import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.forOrders.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
