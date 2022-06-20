@@ -1,10 +1,13 @@
 package com.revature.Project2_backend.controllers;
-import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.forOrders.Orders;
+import com.revature.Project2_backend.model.forCart.CartToken;
+import com.revature.Project2_backend.model.forOrders.OrdersToken;
 import com.revature.Project2_backend.model.forUser.User;
+import com.revature.Project2_backend.service.CartService;
+import com.revature.Project2_backend.service.FoodService;
 import com.revature.Project2_backend.service.OrdersService;
 import com.revature.Project2_backend.service.UserService;
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +23,8 @@ public class OrderResource {
 
   private final OrdersService ordersService;
   private final UserService userService;
+  private final CartService cartService;
+  private final FoodService foodService;
 
   @GetMapping("/getOrderList")
   public ResponseEntity<List<Orders>> getOrders(){
@@ -83,7 +88,7 @@ public class OrderResource {
   public ResponseEntity<List<Orders>> getByUserId(@PathVariable("userId") Long userId){
     List<Orders> byUser = ordersForUser(userId);
     if(byUser.size() != 0) return new ResponseEntity<>(byUser, HttpStatus.OK);
-    else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   public List<Orders> ordersForUser(Long userId){
