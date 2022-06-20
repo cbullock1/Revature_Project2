@@ -1,4 +1,5 @@
 <div class="container">
+    <div class="table-container">
     <table class="table table-hover table-dark">
         <thead>
             <th>CartId</th>
@@ -10,11 +11,12 @@
         <tr *ngFor="let item of cartItems; let i = index">
             <td>{{cart[i].cartId}}</td>
             <td>{{cartItems[i].name}}</td>
-            <td>{{cartItems[i].price}}</td>
+            <td>{{cartItems[i].price | currency}}</td>
             <td><button class="btn btn-danger btn-block" (click)="onButtonClick(cart[i].cartId)">Remove</button></td>
         </tr>
 
     </table>
+    </div>
 
     <h2 class="text-left">The total Price is: {{totalPrice|currency}}</h2>
     <button class="btn btn-dark" (click)="orderSubmit(cart[0].orderId)">Submit Order</button>
