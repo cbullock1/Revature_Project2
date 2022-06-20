@@ -13,7 +13,7 @@
     "categoryId" : 1
 }
 {
-    "name" : "Sandwich wrap",
+    "name" : "Sandwich Wrap",
     "price" : "7.99",
     "description" : "A mixture of ham and salami with lettuce and ranch, with turkey with spinach and blue cheese topped with cherry tomato",
     "picture" : "SandwichWrap.jpg",
@@ -51,7 +51,7 @@
     "name" : "Bacon, Egg, and Cheese Bagel",
     "price" : "5.99",
     "description" : "Toasted wholewwheet bagel with bacon, egg and cheese",
-    "picture" : "BECBagle.jpg",
+    "picture" : "BECBagle.png",
     "categoryId" : 2
 }
 {
@@ -100,7 +100,7 @@
     "name" : "Cheese Burger",
     "price" : "8.99",
     "description" : "Standard cheese burger with american cheese, onion, tomato and lettuce with a side of fries",
-    "picture" : "ChesseBurger.jpg",
+    "picture" : "CheeseBurger.jpg",
     "categoryId" : 3
 }
 {
@@ -121,7 +121,7 @@
     "name" : "Stacked Sandwich",
     "price" : "10.99",
     "description" : "3 piece of toast and in between each is grilled chicken, lettuce and tomato",
-    "picture" : "StackedStandwich.jpg",
+    "picture" : "StackedSandwich.jpg",
     "categoryId" : 3
 }
 {
@@ -142,7 +142,7 @@
     "name" : "Creamy Chicken",
     "price" : "10.99",
     "description" : "Chicken breast shimmered with spicy tomato sauce topped with lettuce and coconut flakes",
-    "picture" : "CreamyChicken.jpg",
+    "picture" : "CreamyChicken.png",
     "categoryId" : 4
 }
 {
@@ -191,21 +191,21 @@
     "name" : "Fudge Sunday",
     "price" : "7.99",
     "description" : "Chocolate ice cream at the bottom with whipped cream on top of it added with pices of chocolate bars and oreo finishing it off with caramel and hot fudge",
-    "picture" : "Fudge Sunday.jpg",
+    "picture" : "FudgeSunday.jpg",
     "categoryId" : 5
 }
 {
     "name" : "Coffee Latte",
     "price" : "3.99",
     "description" : "Coffee with latte art on top",
-    "picture" : "CoffeLatte.jpg",
+    "picture" : "CoffeeLatte.jpg",
     "categoryId" : 6
 }
 {
     "name" : "Black Coffee",
     "price" : "2.49",
     "description" : "",
-    "picture" : "Black Coffee.png",
+    "picture" : "BlackCoffee.jpg",
     "categoryId" : 6
 }
 {
@@ -233,7 +233,7 @@
     "name" : "Dr Pepper",
     "price" : "1.49",
     "description" : "",
-    "picture" : "DrPepper",
+    "picture" : "DrPepper.png",
     "categoryId" : 6
 }
 {
