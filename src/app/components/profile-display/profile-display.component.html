@@ -11,6 +11,7 @@
             <td colspan="1"><h1>Name</h1></td>
             <td colspan="9" class="h1">
                 <input type="text" name="name" class="form-control"  required
+                pattern="([A-Za-z\s\'\-]{1,})" title="Please only use letter or ',' ',-  characters"
                 [class.is-invalid]="name.invalid && name.touched" #name="ngModel" [(ngModel)]="userModel.name" />
               <small class="text-danger" [class.d-none]="name.untouched || name.valid">required*</small>
             </td>
@@ -34,6 +35,7 @@
             <td colspan="1"><h1>Address</h1></td>
             <td colspan="9" class="h1">
                 <input type="text" name="add" placeholder="street address" class="form-control" required
+                pattern="([A-Za-z\d\s\'\-]{1,})" title="Please only use letters,numbers ',' ',-  characters"
                     [class.is-invalid]="add.invalid && add.touched" #add="ngModel" [(ngModel)]="userModel.address" />
                 <small class="text-danger" [class.d-none]="add.untouched || add.valid">required*</small>
             </td>
@@ -52,6 +54,7 @@
             <td colspan="1"><h1>City</h1></td>
             <td colspan="9" class="h1">
                 <input type="text" name="city" placeholder="city" class="form-control" required
+                    pattern="([A-Za-z\s\'\-]{1,})" title="Please only use letter or ',' ',-  characters"
                     [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.city" />
                 <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
             </td>
