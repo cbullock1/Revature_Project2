@@ -44,3 +44,4 @@ Project2_backend/src/main/resources/application.properties
 .editorconfig
 /Project2_backend/target
 Project2_backend/src/main/resources/application.properties
+roject2_backend\target\classes\application.properties
