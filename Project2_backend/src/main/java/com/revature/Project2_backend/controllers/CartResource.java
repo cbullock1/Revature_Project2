@@ -1,7 +1,7 @@
 package com.revature.Project2_backend.controllers;
 
 import com.revature.Project2_backend.model.FoodItems;
-import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.forOrders.Orders;
 import com.revature.Project2_backend.model.forCart.Cart;
 import com.revature.Project2_backend.model.forCart.CartToken;
 import com.revature.Project2_backend.service.CartService;
@@ -89,7 +89,7 @@ public class CartResource {
       }
       return new ResponseEntity<>(itemInCart, HttpStatus.OK);
     }
-    else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   public List<Cart> cartByOrderId(Long orderId) {

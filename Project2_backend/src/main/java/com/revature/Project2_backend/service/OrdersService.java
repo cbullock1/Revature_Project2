@@ -1,7 +1,7 @@
 package com.revature.Project2_backend.service;
 
 import com.revature.Project2_backend.customExceptions.OrdersNotFoundException;
-import com.revature.Project2_backend.model.Orders;
+import com.revature.Project2_backend.model.forOrders.Orders;
 import com.revature.Project2_backend.repo.OrdersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

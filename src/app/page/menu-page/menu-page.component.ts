@@ -67,27 +67,64 @@ export class MenuPageComponent implements OnInit {
 
 
   }
-  AddToCart(foodId: number){
+  AddToCart(foodId: any){
     //First checks if there is an order pending for user if not then it will make an order
+  
+    console.log("Add to cart pressed")
     if(this.cookie.check("userId")){
+
       const check = this.cookie.check("orderStatus")
-      if(check){
-        const value:String = this.cookie.get("orderStatus")
-        if( value != "pending"){
+      console.log("Order checked")
+      console.log(check)
+      console.log(this.cookie.get("orderStatus"))
+      if(!check || this.cookie.get("orderStatus") != "pending"){
+        console.log("Making newOrder.")
+                
           const order = new Order(parseInt(this.cookie.get("userId")), "pending")
+          console.log(order)
           this.data.addOrder(order).subscribe(response =>{
-            this.cookie.set("orderStatus", response.data.orderStatus)
-            this.cookie.set("orderId", response.data.orderId)
+            console.log(response)
+            this.cookie.set("orderStatus", response.orderStatus)
+            this.cookie.set("orderId", response.orderId)
+
+            let currentOrderId =  response.orderId
+            console.log("Adding to cart")
+            console.log("The order id being used is " + currentOrderId)
+            const cart = new Cart(currentOrderId, foodId)
+            this.data.addCart(cart).subscribe(response =>{ 
+              alert("This item has been added to your cart")
+            })
           })
         }
+        else{
+
+        // console.log("checking order table")
+
+      this.data.getOrderByUser(parseInt(this.cookie.get("userId"))).subscribe(response =>{
+        // console.log("checking response data")
+        // console.log(response)
+        const orderlist = response
+        const size = orderlist.length
+        // console.log("The size of history is " + size)
+        console.log("So order id is " + orderlist[size-1].orderId)
+        this.cookie.set("orderId", orderlist[size-1].orderId)
+        this.cookie.set("orderStatus", orderlist[size-1].orderStatus)
+        let currentOrderId =  orderlist[size-1].orderId
+        console.log("Adding to cart")
+        console.log("The order id being used is " + currentOrderId)
+        const cart = new Cart(currentOrderId, foodId)
+        this.data.addCart(cart).subscribe(response =>{ 
+            alert("This item has been added to your cart")
+      })
+
+
+      })
+
+    
 
       }
 
-      const cart = new Cart(parseInt(this.cookie.get("orderId")), foodId)
-      this.data.addCart(cart).subscribe(response =>{ 
-        alert("This item has been added to your cart")
-      })
-
+      
     }
 
   }

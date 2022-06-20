@@ -37,19 +37,16 @@
               
                 <div class="col mb-4" *ngFor="let Food of FoodItems">
                   <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{Food.picture}}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{Food.name}}</h5>
                       <p class="card-text">{{Food.description}}</p>
                       <p class="card-text">{{Food.price | currency}}</p>
-                      <button class="btn btn-primary btn-block" (onclick)="AddToCart(Food.foodId)">Add to cart</button>
+                      <button class="btn btn-primary btn-block" (click)="AddToCart(Food.foodId)">Add to cart</button>
                     </div>
                   </div>
                 </div>
-        
-        
               </div>
         </div>
-        
     </div>
 </div>
