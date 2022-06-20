@@ -14,6 +14,7 @@ export class LoginPageComponent implements OnInit {
       this.route.navigate(['/home/UserLoggedIn'])
 
     }
+    console.log(cookie.get("userId"))
    }
 
   ngOnInit(): void {

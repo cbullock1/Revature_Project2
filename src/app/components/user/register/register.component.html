@@ -17,16 +17,16 @@
 
         <div class="form-group">
           <label for="">Email</label>
-          <input type="text" name="email" 
+          <input type="text" name="email" placeholder="Email"
           pattern="([A-Za-z\d\-]{1,})@([A-Za-z\d\-]{1,})\.([a-z]{2,3})"
-          title="Must put email in the form of yourName@(provider).(extension)"
+          title="Must put email in the form of yourName@(provider).(domain)"
           class="form-control" required
             [class.is-invalid]="email.invalid && email.touched" #email="ngModel" [(ngModel)]="userModel.email" />
           <small class="text-danger" [class.d-none]="email.untouched || email.valid">required*</small>
         </div>
         <div class="form-group">
           <label for="">Password</label>
-          <input type="password" name="password" class="form-control"
+          <input type="password" name="password" class="form-control" placeholder="Password"
           pattern="(\w|^\w){6,}"
           required
             [class.is-invalid]="password.invalid && password.touched" #password="ngModel"
@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
           <label for="">Phone Number</label>
-          <input type="text" name="phone" class="form-control"
+          <input type="text" name="phone" class="form-control" placeholder="(###)###-####"
           pattern="\(?([0-9]{3})\)?\-?([0-9]{3})\-?([0-9]{4})"
           title="Please place phone number in form of (###)###-#### or ###-###-#### or number itself"
           required
@@ -68,7 +68,7 @@
         <input type="submit" value="Register" [disabled]="registerForm.invalid" class="btn" />
         <br />
         <br />
-        <a href="#">Already Register?Click Here</a>
+        <a href="#">Already Register? Click Here</a>
 
 
       </form>
