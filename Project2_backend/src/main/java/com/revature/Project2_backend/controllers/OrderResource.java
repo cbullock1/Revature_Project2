@@ -1,4 +1,6 @@
 package com.revature.Project2_backend.controllers;
+import com.revature.Project2_backend.model.FoodItems;
+import com.revature.Project2_backend.model.forCart.Cart;
 import com.revature.Project2_backend.model.forOrders.Orders;
 import com.revature.Project2_backend.model.forCart.CartToken;
 import com.revature.Project2_backend.model.forOrders.OrdersToken;
@@ -88,6 +90,30 @@ public class OrderResource {
   public ResponseEntity<List<Orders>> getByUserId(@PathVariable("userId") Long userId){
     List<Orders> byUser = ordersForUser(userId);
     if(byUser.size() != 0) return new ResponseEntity<>(byUser, HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
+
+  @GetMapping("/getOrderHistory/{userId}")
+  public ResponseEntity<List<CartToken>> getAllCart(@PathVariable("userId") Long userId){
+    List<Orders> orderByUser = ordersForUser(userId);
+    if(orderByUser.size() != 0){
+      List<CartToken> allItemOfUser = new ArrayList<>();
+      List<Cart> allCart = cartService.findAllCart();
+      for(Orders orders: orderByUser){
+        for(Cart cart: allCart){
+          if(cart.getOrderId() == orders.getOrderId()){
+            FoodItems currentFood = foodService.findByFoodId(cart.getFoodId());
+            CartToken token = new CartToken();
+            token.setCartId(cart.getCartId());
+            token.setOrderId(cart.getOrderId());
+            token.setName(currentFood.getName());
+            token.setPrice(currentFood.getPrice());
+            allItemOfUser.add(token);
+          }
+        }
+      }
+      return new ResponseEntity<>(allItemOfUser, HttpStatus.OK);
+    }
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
