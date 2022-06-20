@@ -11,6 +11,7 @@
 
           <label for="">Full Name</label>
           <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required
+          pattern="([A-Za-z\s\'\-]{1,})" title="Please only use letter or ',' ',-  characters"
             [class.is-invalid]="name.invalid && name.touched" #name="ngModel" [(ngModel)]="userModel.name" />
           <small class="text-danger" [class.d-none]="name.untouched || name.valid">required*</small>
         </div>
@@ -45,10 +46,12 @@
         <div>
           <label for="">Address</label>
           <input type="text" name="add" placeholder="street address" class="form-control" required
+          pattern="([A-Za-z\d\s\'\-]{1,})" title="Please only use letters,numbers ',' ',-  characters"
             [class.is-invalid]="add.invalid && add.touched" #add="ngModel" [(ngModel)]="userModel.address" />
           <small class="text-danger" [class.d-none]="add.untouched || add.valid">required*</small>
           <br />
           <input type="text" name="city" placeholder="city" class="form-control" required
+            pattern="([A-Za-z\s\'\-]{1,})" title="Please only use letter or ',' ',-  characters"
             [class.is-invalid]="city.invalid && city.touched" #city="ngModel" [(ngModel)]="userModel.city" />
           <small class="text-danger" [class.d-none]="city.untouched || city.valid">required*</small>
           <br />
