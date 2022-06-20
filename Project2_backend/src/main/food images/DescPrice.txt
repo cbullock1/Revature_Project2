@@ -1,0 +1,141 @@
+Breakfast Items
+
+Description                           Price
+
+1. Bagel with Egg and Bacon            $4.99
+
+2. Baked Pork Chop                     $5.99
+
+3. Buffalo Wing                        $7.99
+
+4. Calorie Free                        $6.99
+
+5. Delicious Energy Breakfast          $7.99
+
+6. Dipped Pancake                      $8.99
+
+7. Egg Benedict                        $5.99
+
+8. Fried Chicken                       $9.99
+
+9. Full Breakfast                      $11.99
+
+10. Homestyle Fried Chicken            $10.99
+
+11. Light Pancake                      $6.99
+
+12. Pan Cakes With Eggs                $7.99
+
+13. Today's Special                    $8.99
+
+   Lunch Items
+
+Description                           Price
+
+1. Cheese Burger                       $4.99
+
+2. Chicken Cheesy Sandwich             $6.99
+
+3. Chicken Wings                       $7.99
+
+4. Club Sandwich                       $6.99
+
+5. Fried Chicken Wings                 $7.99
+
+6. Frozen Baked Chicken Wings          $9.99
+
+7. Full Lunch                          $13.99
+
+8. Grilled BBQ Chicken wings           $10.99
+
+9. Roasted Chicken                     $9.99
+
+10. Stuffed Sandwich with French Fries $6.99
+
+11. SubMarine sandwich                  $5.99
+
+
+      Dinner Items
+
+Description                           Price
+
+1. Baked Spicy Buffalo Chicken        $6.99
+
+2. Buffalo Chicken wings              $7.99
+
+3. Cheesy Queso Dip with              $8.99
+     Tortilla Chips
+
+4. Creamy Chicken Mushroom            $9.99
+
+5. Corn Dog Sausage                   $6.99
+
+6. Creamy Tomato Chicken Skillet      $9.99
+
+7. Lemon Roasted Chicken              $10.99
+
+8. Pork Chop                          $9.99
+
+9. Roasted Chicken with Sweet Potato  $11.99
+    and Dates
+
+10. Roasted Chicken                   $10.99
+
+11. Skillet Pork Chops In Wine Sause  $11.99
+
+12. Spinach Artichoke Dip             $10.99
+
+13. Sweet Potato Casserole            $8.99
+
+14. Velveta Cheese Dip                $10.99
+
+
+Drinks
+
+Description                           Price
+
+1. Belgini Latte                      $6.99
+
+2. Black Coffee                       $7.99
+
+3. Chocolate Hazelnut Latte           $8.99
+
+4. Cocktail                           $7.99
+
+5. Creamy Latte                       $8.99
+
+6. Gourmet Coffee                     $7.99
+
+7. Iced Coffee                        $4.99
+
+8. Marshmello Coffee                  $6.99
+
+9. Peppermint Cream Cocktail          $8.99
+
+10. Roasted Espresso Coffee            $7.99
+
+Dessert
+
+Description                           Price
+
+1. Caramel Sundae                     $6.99
+
+2. Chocolate Pudding Trifle           $7.99
+
+3. Frozen Custard                     $8.99
+
+4. Frozen Hot Chocolate               $8.99
+
+5. Hot Fudge Sundae                   $6.99
+
+6. Oreo Ice Cream Sundae              $7.99
+
+7. Pampered Trifle                    $9.99
+
+8. Peanut Butter Cup Trifle           $9.99
+
+9. Special Sundae                     $9.99
+
+10. Stuffed Hot Chocolate             $9.99
+
+11. Vanilla Icecream                  $6.99
