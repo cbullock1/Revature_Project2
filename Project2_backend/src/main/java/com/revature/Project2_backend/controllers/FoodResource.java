@@ -31,8 +31,8 @@ public class FoodResource {
   public ResponseEntity<FoodItems> addFood(@RequestBody FoodItems food){
     Category cat = catService.findByCatId(food.getCategoryId());
     if(cat != null){
-      String relativePath = cat.getCatName() + "/" + food.getName();
-      food.setPicture(absolutePath + relativePath + ".jpg");
+      String relativePath = cat.getCatName() + "/" + food.getPicture();
+      food.setPicture(absolutePath + relativePath);
       return new ResponseEntity<>(foodService.addFood(food), HttpStatus.CREATED);
     }
     else return new ResponseEntity<>(HttpStatus.NOT_FOUND);

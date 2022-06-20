@@ -1,0 +1,252 @@
+{
+    "name" : "Bruschetta",
+    "price" : "6.99",
+    "description" : "Mixutre of chopped tomatoes, balsamic, basil, and garlic on top toasted baguette",
+    "picture" : "Bruschetta.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Crab Rangoon",
+    "price" : "6.99",
+    "description" : "Fried with a crispy outer layer and a creamy inside",
+    "picture" : "CrabRangoon.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Sandwich wrap",
+    "price" : "7.99",
+    "description" : "A mixture of ham and salami with lettuce and ranch, with turkey with spinach and blue cheese topped with cherry tomato",
+    "picture" : "SandwichWrap.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Smoked Salmon",
+    "price" : "7.99",
+    "description" : "Smoked salmon with creaming white sauce topped brasil garnish on top of freshly slice cucumber",
+    "picture" : "SmokedSalmon.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Stuffed Bits",
+    "price" : "5.99",
+    "description" : "Deep fried chicken with lettuce and bacon bits stuffed in a crispy shell",
+    "picture" : "StuffedBits.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Sweet Chicken",
+    "price" : "7.99",
+    "description" : "Chicken grilled with rasberry and pineapple on a skeward",
+    "picture" : "SweetChicken.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Vegan Crudities",
+    "price" : "6.99",
+    "description" : "Freshly liced cucumber, pickled raddish, stir fried carrot sticks, and fried ",
+    "picture" : "VeganCrudities.jpg",
+    "categoryId" : 1
+}
+{
+    "name" : "Bacon, Egg, and Cheese Bagel",
+    "price" : "5.99",
+    "description" : "Toasted wholewwheet bagel with bacon, egg and cheese",
+    "picture" : "BECBagle.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "Egg Benedict",
+    "price" : "6.99",
+    "description" : "Two piece of english muffin with ham topped with eggs, comes with potato on the side so you have your fill",
+    "picture" : "EggsBenedict.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "Pancake Stack",
+    "price" : "6.99",
+    "description" : "4 layer blueberry pancake topped with maple syrup",
+    "picture" : "PancakeStack.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "Simple Egg",
+    "price" : "6.99",
+    "description" : "Two sunny side up eggs with four piece of toast, two piece of bacon, a medium size hashbrown and a couple of slice oranges",
+    "picture" : "SimpleEgg.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "All Rounder",
+    "price" : "7.99",
+    "description" : "Two sunny side up eggs with two panckaes, two piece of bacon, a biscuit and a couple of pieces of chicken",
+    "picture" : "AllRounder.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "Revature Breakfest Special",
+    "price" : "7.99",
+    "description" : "Premium breakfest that comes with a pair of sunny side up egg, pancakes, bacon, sauage, and a large size",
+    "picture" : "RevatureBreakfestSpecial.jpg",
+    "categoryId" : 2
+}
+{
+    "name" : "Buffalo Wings",
+    "price" : "10.99",
+    "description" : "12 piece wing with celery comes with ranch on the side",
+    "picture" : "BuffaloWings.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Cheese Burger",
+    "price" : "8.99",
+    "description" : "Standard cheese burger with american cheese, onion, tomato and lettuce with a side of fries",
+    "picture" : "ChesseBurger.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Ham and Salami Sub",
+    "price" : "8.99",
+    "description" : "Ham and salami sub with lettuce of tomato with a side of homemade potato chips",
+    "picture" : "HamSalamiSub.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Quadriple Stack Burger,
+    "price" : "11.99",
+    "description" : "A straight forward burger with 4 stack of meat and a total of 5 pieces of american cheese with a side of fries",
+    "picture" : "QuadripleStack.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Stacked Sandwich",
+    "price" : "10.99",
+    "description" : "3 piece of toast and in between each is grilled chicken, lettuce and tomato",
+    "picture" : "StackedStandwich.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Supreme Sandwich",
+    "price" : "11.99",
+    "description" : "2 stack of 2 layer sandwich with chicken, grilled cheese, bacon, lettuce and egg with a side of french fries",
+    "picture" : "SupremeSandwich.jpg",
+    "categoryId" : 3
+}
+{
+    "name" : "Corn Dog X",
+    "price" : "10.99",
+    "description" : "Giant hot dog toped with onion, beef brisket, ranch, scallions, and creamy buffalo sauce",
+    "picture" : "CornDogX.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Creamy Chicken",
+    "price" : "10.99",
+    "description" : "Chicken breast shimmered with spicy tomato sauce topped with lettuce and coconut flakes",
+    "picture" : "CreamyChicken.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Lasagne",
+    "price" : "11.99",
+    "description" : "Five layered lasagne with thre layer of meat and two layer of cheese",
+    "picture" : "Lasagne.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Mellow Steak",
+    "price" : "13.99",
+    "description" : "Steaks slow cooked on with mushroom and houseblended sauce, creamy and spicy",
+    "picture" : "MellowSteak.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Pork Chop Special",
+    "price" : "12.99",
+    "description" : "Four piece pork chop grilled with carrot, zucchini, potato and onion",
+    "picture" : "PorkChopSpecial.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Sweet Potato Casserole",
+    "price" : "11.99",
+    "description" : "Sweet potato casserole topped with gravy with a side of green bean",
+    "picture" : "SPCasserole.jpg",
+    "categoryId" : 4
+}
+{
+    "name" : "Chocolate Trifle",
+    "price" : "7.99",
+    "description" : "6 layers, one layer of chocolate ice cream, two layer of cream, two layer of brownie and one layer chocolate mousse topped with another layer of whipped creme with chocolate flakes",
+    "picture" : "ChocolateTrifle.jpg",
+    "categoryId" : 5
+}
+{
+    "name" : "Creme Belle",
+    "price" : "6.99",
+    "description" : "Layered with caramelized sugar on top and a creamy custured bottom",
+    "picture" : "CremeBelle.jpg",
+    "categoryId" : 5
+}
+{
+    "name" : "Fudge Sunday",
+    "price" : "7.99",
+    "description" : "Chocolate ice cream at the bottom with whipped cream on top of it added with pices of chocolate bars and oreo finishing it off with caramel and hot fudge",
+    "picture" : "Fudge Sunday.jpg",
+    "categoryId" : 5
+}
+{
+    "name" : "Coffee Latte",
+    "price" : "3.99",
+    "description" : "Coffee with latte art on top",
+    "picture" : "CoffeLatte.jpg",
+    "categoryId" : 6
+}
+{
+    "name" : "Black Coffee",
+    "price" : "2.49",
+    "description" : "",
+    "picture" : "Black Coffee.png",
+    "categoryId" : 6
+}
+{
+    "name" : "Coca Cola",
+    "price" : "1.49",
+    "description" : "",
+    "picture" : "CocaCola.png",
+    "categoryId" : 6
+}
+{
+    "name" : "Diet Coke",
+    "price" : "1.49",
+    "description" : "",
+    "picture" : "DietCoke.png",
+    "categoryId" : 6
+}
+{
+    "name" : "Sprite",
+    "price" : "1.49",
+    "description" : "",
+    "picture" : "Sprite.jpg",
+    "categoryId" : 6
+}
+{
+    "name" : "Dr Pepper",
+    "price" : "1.49",
+    "description" : "",
+    "picture" : "DrPepper",
+    "categoryId" : 6
+}
+{
+    "name" : "Sweet Tea",
+    "price" : "2.49",
+    "description" : "",
+    "picture" : "SweetTea.jpg",
+    "categoryId" : 6
+}
+{
+    "name" : "Lemonade",
+    "price" : "2.49",
+    "description" : "",
+    "picture" : "Lemonade.jpg",
+    "categoryId" : 6
+}
