@@ -111,7 +111,7 @@
     "categoryId" : 3
 }
 {
-    "name" : "Quadriple Stack Burger,
+    "name" : "Quadriple Stack Burger",
     "price" : "11.99",
     "description" : "A straight forward burger with 4 stack of meat and a total of 5 pieces of american cheese with a side of fries",
     "picture" : "QuadripleStack.jpg",
