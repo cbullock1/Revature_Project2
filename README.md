@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
+## Project Description
+Creating a Restaurant Reservation System The Restaurant Reservation System will allow a user to order food online. This web app includes a menu of food sold by the restaurant, a home page, and a reservation page with which a user can at a time and day of their choosing. This project is built with Angular for the frontend, and Spring for the backend. 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
