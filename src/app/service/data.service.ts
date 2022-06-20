@@ -56,6 +56,10 @@ export class DataService {
     return this.http.get<any>(`${this.apiServerUrl}/Cart/CartItem/${orderId}`)
   }
 
+  getAllUserTokens(userId:number):Observable<any>{
+    return this.http.get<any>(`${this.apiServerUrl}/Orders/getOrderHistory/${userId}`)
+  }
+
   deleteCartItem(cartId:number):Observable<any>{
     return this.http.delete<any>(`${this.apiServerUrl}/Cart/DeleteCartId/${cartId}`)
   }
